@@ -1,4 +1,4 @@
-package tauCodeAlongCh13A;
+package tauCodeAlongCh13;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,8 +10,9 @@ public class ExceptionHandling {
 
     public static void main(String[] args) {
 
-      //  createNewFile();
+        createNewFile();
         numbersExceptionHandling();
+        createNewFileRethrow();
     }
         public static void createNewFile () {
             File file = new File("C:\\Users\\Jazmin\\New Projects\\ExceptionsAndLoggers\\src\\main\\resources\\nonexistent.txt");
@@ -21,7 +22,13 @@ public class ExceptionHandling {
                 System.out.println("Directory does not exist.");
                 ex.printStackTrace();
             }
-        }// end createNewFile()
+        }// end createNewFileRethrow()
+    public static void createNewFileRethrow() throws IOException  {
+        File file = new File("C:\\Users\\Jazmin\\New Projects\\ExceptionsAndLoggers\\src\\main\\resources\\nonexistent.txt");
+
+            file.createNewFileRethrow();
+
+    }// End createNewFileRethrow()
         public static void numbersExceptionHandling () {
             File file = new File("C:\\Users\\Jazmin\\New Projects\\ExceptionsAndLoggers\\src\\main\\resources\\numbers.txt");
             try(Scanner fileReader=new Scanner(file)) {
@@ -34,6 +41,14 @@ public class ExceptionHandling {
                 ex.printStackTrace();
             }
         }
+        public static void calculatSalary(double hours, double rate){
+        if (hours>40);
+        throw new IllegalArgumentException("We do not allow overtime")
+        }
+    public static void calculatSalary(double hours, double rate){
+        if (hours>40);
+        throw new IllegalArgumentException("We do not allow overtime");
+    }
 
 
 } //end Class
